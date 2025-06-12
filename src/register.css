@@ -1,0 +1,193 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    background-color: #f9fafb;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 16px;
+}
+
+.container {
+    width: 35vw;
+    max-width: 720px;
+    background-color: white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.07);
+    border: 1px solid #e5e7eb;
+    padding: 40px;
+    margin: 20px 0;
+}
+
+.title {
+    font-size: 24px;
+    font-weight: 600;
+    color: #111827;
+    margin-bottom: 32px;
+    text-align: left;
+}
+
+.form-group {
+    margin-bottom: 24px;
+}
+
+.form-label {
+    display: block;
+    font-size: 14px;
+    font-weight: 500;
+    color: #7c3aed;
+    margin-bottom: 8px;
+}
+
+.form-input {
+    width: 100%;
+    padding: 12px 16px;
+    border: 1px solid #d1d5db;
+    font-size: 16px;
+    color: #6b7280;
+    background-color: white;
+    transition: border-color 0.2s ease;
+    border-radius: 0; /* removed rounded edges */
+}
+
+.form-input:focus {
+    outline: none;
+    border-color: #7c3aed;
+    box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.1);
+}
+
+.form-input::placeholder {
+    color: #9ca3af;
+}
+
+.radio-group {
+    margin-bottom: 40px;
+}
+
+.radio-question {
+    font-size: 14px;
+    font-weight: 500;
+    color: #374151;
+    margin-bottom: 12px;
+}
+
+.radio-options {
+    display: flex;
+    gap: 20px;
+}
+
+.radio-option {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.radio-input {
+    width: 16px;
+    height: 16px;
+    border: 2px solid #d1d5db;
+    position: relative;
+    cursor: pointer;
+    transition: border-color 0.2s ease;
+    border-radius: 0; /* square */
+}
+
+.radio-input input[type="radio"] {
+    position: absolute;
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    cursor: pointer;
+}
+
+.radio-input input[type="radio"]:checked + .radio-dot {
+    background-color: #7c3aed;
+    transform: scale(1);
+}
+
+.radio-input:has(input:checked) {
+    border-color: #7c3aed;
+}
+
+.radio-dot {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 8px;
+    height: 8px;
+    background-color: transparent;
+    border-radius: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    transition: all 0.2s ease;
+}
+
+.radio-label {
+    font-size: 14px;
+    color: #374151;
+    cursor: pointer;
+}
+
+.create-button {
+    width: 100%;
+    padding: 16px;
+    background-color: #7c3aed;
+    color: white;
+    border: none;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    border-radius: 0; /* square button */
+}
+
+.create-button:hover {
+    background-color: #6d28d9;
+}
+
+.create-button:active {
+    transform: translateY(1px);
+}
+
+/* Mobile responsiveness */
+@media (max-width: 640px) {
+    body {
+        padding: 12px;
+    }
+
+    .container {
+        padding: 24px;
+        margin: 12px 0;
+        max-width: 100%;
+        width: 90vw;
+    }
+
+    .title {
+        font-size: 22px;
+        margin-bottom: 24px;
+    }
+
+    .form-group {
+        margin-bottom: 20px;
+    }
+
+    .radio-group {
+        margin-bottom: 32px;
+    }
+}
+
+/* Add error message styles */
+.error-message {
+    color: #dc2626;
+    font-size: 12px;
+    margin-top: 4px;
+}
+
+.form-input.error {
+    border-color: #dc2626;
+}

@@ -1,0 +1,274 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 16px;
+    margin: 0;
+    background-color: #f9fafb;
+}
+
+.container {
+    width: 35vw;
+    max-width: 400px;
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.07);
+    border: 1px solid #e5e7eb;
+    padding: 40px 32px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.image-container {
+    height: 320px;
+    margin-bottom: 32px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 12px;
+    position: relative;
+    overflow: hidden;
+    flex-shrink: 0; /* Prevent image container from shrinking */
+}
+
+.welcome-icon {
+    width: 120px;
+    height: 120px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+.welcome-icon svg {
+    width: 60px;
+    height: 60px;
+    color: white;
+}
+
+/* Floating animation */
+@keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+}
+
+.welcome-icon {
+    animation: float 3s ease-in-out infinite;
+}
+
+/* Background decoration */
+.image-container::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px);
+    background-size: 30px 30px;
+    animation: rotate 20s linear infinite;
+}
+
+@keyframes rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.content {
+    text-align: center;
+    flex-shrink: 0; /* Prevent content from shrinking */
+}
+
+.title {
+    font-size: 24px;
+    font-weight: 600;
+    color: #111827;
+    margin-bottom: 16px;
+}
+
+.description {
+    color: #6b7280;
+    font-size: 14px;
+    line-height: 1.5;
+    margin-bottom: 32px;
+    text-align: left;
+}
+
+.button-container {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.button {
+    width: 100%;
+    padding: 12px 16px;
+    border-radius: 8px;
+    font-weight: 500;
+    font-size: 14px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.button-primary {
+    background-color: #7c3aed;
+    color: white;
+}
+
+.button-primary:hover {
+    background-color: #6d28d9;
+}
+
+.button-secondary {
+    background-color: #ede9fe;
+    color: #7c3aed;
+}
+
+.button-secondary:hover {
+    background-color: #ddd6fe;
+}
+
+/* Mobile styles */
+@media (max-width: 480px) {
+    body {
+        align-items: flex-start; /* Allow scrolling from top */
+        padding: 12px;
+        min-height: 100vh;
+    }
+
+    .container {
+        margin: 12px 0; /* Add top/bottom margin for breathing room */
+        padding: 32px 24px;
+        min-height: auto; /* Remove height constraints */
+        max-height: none; /* Remove max-height constraint */
+    }
+
+    .image-container {
+        height: 240px;
+        margin-bottom: 24px;
+    }
+
+    .welcome-icon {
+        width: 100px;
+        height: 100px;
+    }
+
+    .welcome-icon svg {
+        width: 50px;
+        height: 50px;
+    }
+
+    .title {
+        font-size: 22px;
+    }
+
+    .content {
+        padding: 0; /* Remove extra padding */
+    }
+}
+
+@media (max-width: 320px) {
+    body {
+        padding: 8px;
+    }
+
+    .container {
+        padding: 24px 20px;
+        margin: 8px 0;
+    }
+
+    .image-container {
+        height: 200px;
+    }
+
+    .welcome-icon {
+        width: 80px;
+        height: 80px;
+    }
+
+    .welcome-icon svg {
+        width: 40px;
+        height: 40px;
+    }
+
+    .title {
+        font-size: 20px;
+    }
+
+    .button {
+        padding: 14px 16px;
+    }
+}
+
+/* Very small screens - extra adjustments */
+@media (max-height: 500px) and (max-width: 480px) {
+    .image-container {
+        height: 160px;
+        margin-bottom: 16px;
+    }
+
+    .welcome-icon {
+        width: 70px;
+        height: 70px;
+    }
+
+    .welcome-icon svg {
+        width: 35px;
+        height: 35px;
+    }
+
+    .description {
+        margin-bottom: 20px;
+    }
+}
+
+/* Landscape orientation on mobile */
+@media (max-height: 600px) and (orientation: landscape) {
+    body {
+        align-items: flex-start;
+        padding: 8px;
+    }
+
+    .container {
+        margin: 8px 0;
+        padding: 20px 32px;
+    }
+
+    .image-container {
+        height: 120px;
+        margin-bottom: 16px;
+    }
+
+    .welcome-icon {
+        width: 60px;
+        height: 60px;
+    }
+
+    .welcome-icon svg {
+        width: 30px;
+        height: 30px;
+    }
+
+    .description {
+        margin-bottom: 20px;
+    }
+}
